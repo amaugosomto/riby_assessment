@@ -1,0 +1,43 @@
+<div class="table-responsive">
+    <table class="table">
+        <thead class="grey lighten-2">
+            <tr style="color: #428bca; font-weight: bolder;">
+                <b>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Phone number</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Account number</th>
+                    <th scope="col">Account Name</th>
+                    <th scope="col">Bank Name</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Actions</th>
+                </b>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in vm.reports"  ng-class="(user.permission == 'disabled')? 'alert alert-warning':''">
+   
+                <td>{{user.name? user.name: user.first_name + ' ' +user.last_name | uppercase}}</td>
+                <td>{{user.phoneNumber}}</td>
+                <td>{{user.email}}</td>
+                <td>{{(user.account_number)? user.account_number: 'nil'}}</td>
+                <td>{{(user.account_name)? user.account_name: 'nil'}}</td>
+                <td>{{(user.bank_name)? user.bank_name: 'nil'}}</td>
+                <td>{{user.permission}}</td>
+                <td >
+                    <li class="dropdown" ng-if="user.permission !== 'supAdmin'">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <p class="btn btn-primary">Actions</p>
+                            <!-- <b class="caret"></b> -->
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a ng-click="vm.user($event, user._id)" ng-show="!saving.paidComplete">Edit Permission</a></li>
+                            <li><a ng-click="vm.save(user.name , user._id)">View Savings</a></li>
+                        </ul>
+                    </li>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

@@ -1,0 +1,46 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-1 wrapper">
+    <div class="row text-center header animate-in">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1 class="page-header">Make a Withdrawal</h1>
+        </div>
+    </div>
+
+
+    <div ng-show="!withdraw.accStat">
+        <div class="panel panel-body md-whiteframe-z2">
+            <span>
+                Please go to your profile and add an account number to be able to withdraw. Thanks.
+            </span>
+        </div>
+    </div>
+
+    <div ng-show="withdraw.accStat">
+        <div ng-show="!condition">
+            <form ng-Submit="withdraw.withdraw()" class="main-login main-center" name="withdrawForm">
+                <div class="alert alert-danger md-whiteframe-z2">
+                    <strong>Warning!</strong> Clicking the "Withdraw" button when your Saving Plan hasn't Elasped
+                    and when you
+                    have not paid in full, results in a penalty..
+                </div>
+
+                <div class="form-group ">
+                    <button type="submit" class="btn btn-primary btn-lg login-button">Withdraw</button>
+                </div>
+            </form>
+        </div>
+
+
+        <div ng-show="condition">
+            <form ng-submit="withdraw()" class="main-login main-center">
+                <div class="alert alert-success">
+                    <strong>Success!</strong> Congrats, You can Click the "Withdraw" button to proceed.
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg login-button">Withdraw</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>

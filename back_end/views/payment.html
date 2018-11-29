@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Index Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var email,pass;
+
+            $("#submit").click(function() {
+                email = $("#email").val();
+                pass = $("#password").val();
+
+                $.post("http://localhost:3000/users/register", {email:email, pass:pass}, function(data) {
+                    if(data === done){
+                        window.location.href = "/users/login";
+                    }    
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+        <form name="form1" action=" https://sandbox.interswitchng.com/webpay/pay" method="post"> 
+        <input name="product_id" type="hidden" value="6204" /> 
+        <input name="amount" type="hidden" value="175900" /> 
+        <input name="currency" type="hidden" value="566" /> 
+        <input name="site_redirect_url" type="hidden" value="http://abc.com/page/getresponse.aspx?echo="> 
+        <input name="site_name" type="hidden" value="http://www.abc.com" /> 
+        <input name="cust_id" type="hidden" value="a" /> 
+        <input name="cust_id_desc" type="hidden" value="Value Name" /> 
+        <input name="cust_name" type="hidden" value="Name <B>Surname</B>" /> 
+        <input name="cust_name_desc" type="hidden" value="Full name" /> 
+        <input name="txn_ref" type="hidden" value="AB-12345-TD" /> 
+        <input name="pay_item_id" type="hidden" value="101" /> 
+        <input name="pay_item_name" type="hidden" value="Name of Fees/Payment" /> 
+        <input name="local_date_time" type="hidden" value="" /> 
+        <input name="hash" type="hidden" value="402D39A072B15B557D0E04E74D6F896EAA98EDFF5B81726C52F6A73C6CC729075C526CCF56EB1ADA1E 336BFA297D2288A069385BD4ED210F381B5F61135BBF0D " /> 
+        <input name="payment_params" type="hidden" value="payment_split" />  
+        <input name="xml_data" type="hidden" value='
+        <payment_item_detail>  
+        <item_details detail_ref="AB-12345-TD" institution="MyCompanyNigeriaLTD" sub_location="LogisticsTeam" location="Abuja">  
+        <item_detail item_id="1" item_name="Butter" item_amt="50000" bank_id="7" acct_num="9876543210" />  
+        <item_detail item_id="2" item_name="Juice" item_amt="200000"bank_id="10" acct_num="1234567890" />  
+        </item_details>  
+        </payment_item_detail>' />
+        </form>
+</body>>

@@ -1,0 +1,64 @@
+<section id="contact">
+    <div class="section-content md-accent contactHead">
+        <h1 class="section-header">Get in
+            <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Touch with us</span>
+        </h1>
+    </div>
+    <div class="contact-section">
+        <div class="container">
+            <form name="contactForm">
+                <div class="col-md-6 form-line">
+                    <div class="form-group" show-errors>
+                        <md-input-container flex>
+                            <label>Your Name</label>
+                            <input required type="text" name="name" ng-model="vm.contact.name">
+                            <p class="help-block" ng-if="contactForm.name.$error.required">Please Put in Your Name</p>
+                        </md-input-container>
+                    </div>
+                    <div class="form-group" show-errors>
+                        <md-input-container flex>
+                            <label>Email Address</label>
+                            <input required type="email" name="email" ng-model="vm.contact.email" ng-pattern="/^.+@.+\..+$/">
+                            <p class="help-block" ng-if="contactForm.email.$error.required">Please put in your Email</p>
+                            <p class="help-block" ng-if="contactForm.email.$error.pattern">Please put in a valid Email</p>
+                        </md-input-container>
+                    </div>
+                    <div class="form-group" show-errors>
+                        <md-input-container flex>
+                            <label>Phone Number</label>
+                            <input required type="number" name="phoneNumber" ng-model="vm.contact.phoneNumber">
+                            <p class="help-block" ng-if="contactForm.phoneNumber.$error.required">Please put in your
+                                Phone Number</p>
+                        </md-input-container>
+                    </div>
+                    <div class="form-group" show-errors>
+                        <md-input-container flex>
+                            <label>Address</label>
+                            <input required type="text" name="address" ng-model="vm.contact.address">
+                            <p class="help-block" ng-if="contactForm.address.$error.required">Please put in your
+                                Phone Number</p>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="form-group" show-errors>
+                        <label>State</label>
+                        <md-select ng-model="vm.contact.state">
+                            <md-option><em>None</em></md-option>
+                            <md-option ng-repeat="str in vm.states" ng-value="str.state">{{str.state}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <md-input-container flex>
+                            <label for="description"> Enter your message</label>
+                            <textarea class="form-control" id="description"></textarea>
+                        </md-input-container>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary md-raised" disabled>
+                            <i class="fa fa-paper-plane" aria-hidden="true"></i> Send Message</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+</section>

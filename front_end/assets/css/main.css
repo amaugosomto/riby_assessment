@@ -1,0 +1,334 @@
+/* 
+#wrapper {
+    background-image: url('../img/1.jpg');
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding-top: 20%;
+} */
+
+/* .btn1 {
+    color: rgb(49, 46, 46);
+    background-color: rgba(255, 222, 121, 0.96);
+    border-radius: 10px 0 0 10px;
+    font-size: 12px;
+    font-weight: bold;
+} */
+
+/* .btn1:hover {
+    color: white;
+}
+
+#socials {
+    display: block;
+    margin: 50px 20px;
+}
+
+#services {
+    padding-top: 200px;
+}
+
+#services .services-wrapper {
+    padding: 20px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 10px;
+    margin-bottom: 40px;
+    background-color: rgba(192, 192, 192, 0.9);
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+#services .services-wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.20);
+}
+
+#services h3 {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    font-weight: bold;
+} */
+
+/* #services p {
+    color: blueviolet;
+}
+
+#services .services-wrapper i {
+    margin: 5px;
+    color: rgb(57, 171, 111);
+    font-size: 60px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 11px;
+    padding-top: 3px;
+} */
+.modalz{
+    background-color: #c0c0c0;
+    /* -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); */
+}
+.modals{
+    margin-top: 0px;
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 20px 20px 5px 20px;
+}
+
+.main-login {
+    background-color: #c0c0c0;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.main-center {
+    margin-top: 0px;
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 20px 20px 5px 20px;
+}
+
+.reg .main-center{
+    margin-top: 0px;
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 20px 20px 5px 20px;
+}
+
+.login-button {
+    margin-top: 5px;
+}
+
+.login-register {
+    font-size: 11px;
+    text-align: center;
+}
+
+/* .text_white {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.panel-title h1 {
+    color: whitesmoke;
+} */
+
+.md-whiteframe-z5 {
+    margin: 0%;
+    width: 220px;
+    height: 100vh;
+    text-align: left;
+    padding-left: 0%;
+    margin-left: 0%;
+}
+
+/* .container {
+    width: auto;
+} */
+
+#pricing.container.wrapper{
+    width: auto;
+}
+
+hr {
+    width: 200px
+}
+
+.light-pricing {
+    margin-bottom: 30px;
+    margin-top: 50px;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgb(94, 94, 94);
+    line-height: 30px;
+    /* cursor: pointer; */
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.light-pricing:hover {
+    background-color: transparent;
+}
+
+.light-pricing ul {
+    list-style: none;
+    margin: 0;
+    text-align: center;
+    padding-left: 0px;
+}
+
+.light-pricing ul li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* cursor: pointer; */
+}
+
+.light-pricing ul li i {
+    margin-right: 5px;
+}
+
+.light-pricing .price {
+    padding: 40px 20px 20px 20px;
+    font-size: 60px;
+    font-weight: 900;
+}
+
+.light-pricing .price small {
+    color: #000;
+    display: block;
+    font-size: 15px;
+    margin-top: 22px;
+}
+
+.light-pricing .type {
+    background-color: rgba(0, 0, 0, 0.40);
+    padding: 30px 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+.light-pricing .pricing-footer {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.db-attached>.col-lg-4,
+.db-attached>.col-lg-3,
+.db-attached>.col-md-4,
+.db-attached>.col-md-3,
+.db-attached>.col-sm-4,
+.db-attached>.col-sm-3 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.light-pricing.popular {
+    margin-top: 10px;
+}
+
+.light-pricing.popular .price {
+    padding-top: 80px;
+}
+
+.light-pricing a {
+    background-color: rgba(0, 0, 0, 0.40);
+    padding: 5px 5px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: whitesmoke;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.light-pricing a:hover {
+    color: whitesmoke;
+    background-color: #8e593c;
+}
+
+.row {
+    padding: 0%;
+    margin: 0%;
+}
+
+.row h3 {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(94, 94, 94);
+    font-family: 'Slabo 27px', serif;
+}
+
+/* table {
+    counter-reset: rowNumber-1;
+}
+
+table tr {
+    counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+} */
+
+.table{
+    font-size: 12px;
+}
+
+.this {
+    text-align: center;
+}
+
+tr td {
+    width: 1%;
+    white-space: nowrap;
+}
+
+.form-group .help-block {
+    display: none;
+}
+
+.form-group.has-error .help-block {
+    display: block;
+}
+
+md-input-container{
+    text-align: left;
+    width: 100%; 
+}
+
+md-input-container p{
+    font-size: 1rem;
+}
+
+.contactHead .section-header{
+    background-color: #8e593c;
+    margin-top: 0%;
+    padding-top: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+}
+
+#login.container{
+    position: relative;
+    top: 50px;
+}
+
+#extra.contain{
+    position: relative;
+    top: 50px;
+    color: white
+}
+
+#extra.contain.serve{
+    position: relative;
+    top: 100px 
+}
+
+.page .contain .container  div div h3{
+    margin-bottom: 20px;
+}

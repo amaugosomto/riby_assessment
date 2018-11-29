@@ -1,0 +1,42 @@
+<div class="modalz">
+    <div>
+        <div class="row main">
+            <div class="panel-heading">
+                <div class="panel-title text-center">
+                    <span class="title md-hue-1">Reset your password</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form class="form-horizontal modals" ng-submit="vm.request()" name="emailForm">
+                <div class="column">
+                    <div class="col-md-12">
+                        <div class="form-group" show-errors>
+                            <label for="email" class="cols-sm-2 control-label">
+                                Enter your email address and we will send you a link to reset your password.
+                            </label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="email" name="email" class="form-control" ng-model="vm.email" id="email"
+                                        placeholder="Enter your Email" ng-pattern="/^.+@.+\..+$/" required />
+                                </div>
+                                <p class="help-block" ng-if="emailForm.email.$error.required">Please put in your Email</p>
+                                <p class="help-block" ng-if="emailForm.email.$error.pattern">The email address is
+                                    invalid</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary btn-fill btn-wd" ng-hide="vm.activated">Change</button>
+                    <md-progress-circular md-mode="indeterminate" ng-hide="!vm.activated" layout-align='center'></md-progress-circular>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

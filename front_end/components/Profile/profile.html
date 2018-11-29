@@ -1,0 +1,170 @@
+<div class=" md-whiteframe-z2 wrapper">
+    <div class="panel-body">
+
+        <div ng-show='vm.isNotFound' style="color:red">
+            <span class="glyphicon glyphicon-thumbs-down"></span> Profile not Found
+            <hr>
+            <a ui-sref="dashboard" class="btn btn-primary">
+                <i class="glyphicon glyphicon-chevron-left"></i> Go Back to Dashboard
+            </a>
+        </div>
+
+        <div ng-show='vm.user'>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-5">
+                            <div class="card card-user">
+                                <div class="image">
+                                    <img src="assets/img/background.jpg" alt="..." />
+                                </div>
+                                <div class="content">
+                                    <div class="author">
+                                        <img class="avatar border-white" src="{{vm.img_src || 'assets/img/faces/face-2.jpg'}}" alt="..." />
+                                        <h4 class="title">{{vm.user.name}}<br />
+                                            <a href="#"><small>{{vm.user.email}}</small></a>
+                                        </h4>
+                                    </div>
+                                    <p class="description text-center">
+                                        {{vm.user.permission}}
+                                    </p>
+                                </div>
+                                <hr>
+                            </div>
+                            <div>
+                                <form>
+                                    <label class="btn btn-success">Browse new picture
+                                        <input file-model="file.upload" type="file" style="display:none" name="myFile"
+                                            onchange="angular.element(this).scope().photoChanged(this.files)">
+                                    </label>
+                                    <button class="btn btn-primary" ng-click="photo_upload()">Upload</button>
+                                </form>
+                                <br>
+                                <img class="myThumbnail" ng-src="{{thumbnail.dataUrl || './assets/img/index.jpeg'}}">
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-7">
+                            <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Profile</h4>
+                                </div>
+                                <div class="content">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label>Company</label>
+                                                    <input type="text" class="form-control border-input" disabled
+                                                        placeholder="Company" value="Biry Code Inc.">
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Username</label>
+                                                    <input type="text" class="form-control border-input" placeholder="Username"
+                                                        value="michael23">
+                                                </div>
+                                            </div> -->
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Email address</label>
+                                                    <input type="email" class="form-control border-input" placeholder="Email"
+                                                        ng-model="vm.user.email" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>First Name</label>
+                                                    <input type="text" class="form-control border-input" placeholder="First Name"
+                                                        ng-model='vm.user.first_name' disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Last Name</label>
+                                                    <input type="text" class="form-control border-input" placeholder="Last Name"
+                                                        ng-model="vm.user.last_name" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" flex>
+                                                <div class="form-group">
+                                                    <label>Phone Number</label>
+                                                    <input type="text" class="form-control border-input" ng-model="vm.user.phoneNumber"
+                                                        disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Address</label>
+                                                    <input type="text" class="form-control border-input" placeholder="Home Address"
+                                                        ng-model="vm.user.address" value="Biry Inc" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" ng-hide="!vm.user.bank_name">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Bank Name</label>
+                                                    <input type="text" class="form-control border-input" ng-model="vm.user.bank_name"
+                                                        disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Account Name</label>
+                                                    <input type="text" class="form-control border-input" ng-model="vm.user.account_name"
+                                                        disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>City</label>
+                                                    <input type="text" class="form-control border-input" placeholder="City"
+                                                        ng-model="vm.user.state" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Country</label>
+                                                    <input type="text" class="form-control border-input" placeholder="Country"
+                                                        value="Nigeria" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" ng-hide="!vm.user.bank_name">
+                                                <div class="form-group">
+                                                    <label>Account Number</label>
+                                                    <input type="text" class="form-control border-input" ng-model="vm.user.account_number"
+                                                        disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <!-- <button type="submit" class="btn btn-info btn-fill btn-wd" ng-click="vm.update()">Update Profile</button> -->
+                                            <a ui-sref="dashboard.profile.account"
+                                                class="btn btn-info btn-fill btn-wd" ng-hide="vm.user.bank_name">
+                                                <i class="glyphicon glyphicon-message-forward"></i> Add Account Number
+                                            </a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>

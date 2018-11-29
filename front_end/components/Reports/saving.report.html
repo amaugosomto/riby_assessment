@@ -1,0 +1,59 @@
+<div class=" wrapper">
+    <div class="row">
+        <div class="col-xs-4">
+            <label for="search">Search:</label>
+            <input ng-model="q" id="search" class="form-control" placeholder="Filter savings">
+        </div>
+    </div>
+    <div>
+        <h2 class="sub-header">Reports on savings</h2>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="grey lighten-2">
+                <tr style="color: #428bca; font-weight: bolder;">
+                    <b>
+                        <th scope="col">Plan Name</th>
+                        <th scope="col">Saving Name</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Interest</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Credited On</th>
+                        <th scope="col">Withdrawable On</th>
+                        <th scope="col">Amount Paid</th>
+                    </b>
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate="saving in vm.reports | filter:q | itemsPerPage: vm.pageSize" ng-class="(saving.disbursed == true)? 'alert alert-success': ''">
+
+                    <td>{{saving.plan | uppercase}}</td>
+                    <td>{{saving.option | uppercase}}</td>
+                    <td>{{saving.duration}} Months</td>
+                    <td>{{saving.interest}}%</td>
+                    <td>{{saving.amount | number}}</td>
+                    <td>{{saving.saveDate | date: 'dd/MM/yyyy'}}</td>
+                    <td>
+                        {{ (saving.durationElapse)? saving.durationElapse: '--' | date: 'dd/MM/yyyy'}}
+                    </td>
+                    <td>{{(saving.amountPaidTillDate >=0)? saving.amountPaidTillDate: saving.amount | number }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{vm.total | number}}</td>
+                </tr>
+                </span>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <dir-pagination-controls boundary-links="true" template-url="./components/MiddleWares/dirPagination.tpl.html"></dir-pagination-controls>
+    </div>
+</div>

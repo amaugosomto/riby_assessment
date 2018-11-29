@@ -1,0 +1,191 @@
+<div class="full" permission="['user', 'admin']">
+    <div class="row" ng-hide="{{(dashboard.savings.length == 0)? true:false}}">
+        <div class="col-xs-4">
+            <label for="search">Search:</label>
+            <input ng-model="q" id="search" class="form-control" placeholder="Filter savings">
+        </div>
+    </div>
+    <div ng-hide="{{(dashboard.savings.length == 0)? true:false}}">
+        <h2 class="sub-header">Your Savings</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="grey lighten-2">
+                    <tr style="color: #428bca; font-weight: bolder;">
+                        <b>
+                            <th scope="col">Plan</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Interest</th>
+                            <th scope="col">Accumulated / Amount Withdrawn</th>
+                            <th scope="col">Paid</th>
+                            <th scope="col">Amount Expected</th>
+                            <th scope="col">Credited On</th>
+                            <th scope="col">Next Payment</th>
+                            <th scope="col">Action/Status</th>
+                            <th>
+                            </th>
+                        </b>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr dir-paginate="saving in dashboard.savings | filter:q | itemsPerPage: dashboard.pageSize"
+                        ng-class="(saving.disbursed == true)? 'alert alert-success': ''">
+                        
+                        <td>{{saving.plan | uppercase}}</td>
+                        <td>{{saving.option | uppercase}}</td>
+                        <td>{{saving.name | uppercase}}</td>
+                        <td>{{saving.amount | number }}</td>
+                        <td>{{saving.duration}} Months</td>
+                        <td>{{saving.interest}}%</td>
+                        <td>{{saving.todayAmount? saving.todayAmount : saving.amountDisbursed | number}}</td>
+                        <td>{{saving.amountPaidTillDate | number}}</td>
+                        <td>{{saving.projectedAmount | number}}</td>
+                        <td>{{saving.saveDate | date: 'dd/MM/yyyy'}}</td>
+                        <td>
+                            {{ (saving.next_payment)? saving.next_payment: '--' | date: 'dd/MM/yyyy'}}
+                        </td>
+                        <td ng-show="saving.disbursed">
+                            <span class="btn btn-default" disabled>Completed</span>
+                            <span flex></span>
+                            <a ng-click="dashboard.view(saving._id)" class="btn btn-primary" ng-disabled="{{saving.amountPaidTillDate <= 0}}"><b>View</b></a>
+                        </td>
+                        <td ng-show="!saving.disbursed">
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown">
+                                    <p class="btn btn-primary">Actions</p>
+                                    <!-- <b class="caret"></b> -->
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a ng-click="dashboard.payment(saving._id, saving.amount, saving.amountPaidTillDate)" ng-show="!saving.paidComplete">Make
+                                            Payment</a></li>
+                                    <li><a ng-click="dashboard.withdraw(saving.durationElapse, saving._id)">Withdraw</a></li>
+                                    <li ng-hide="{{saving.amountPaidTillDate <= 0}}"><a ng-click="dashboard.view(saving._id)"><b>View</b></a></li>
+                                </ul>
+                            </li>
+                        </td>
+                    </tr>
+                    </span>
+                </tbody>
+            </table> 
+        </div>
+    </div>
+
+    <div class="text-center">
+        <dir-pagination-controls boundary-links="true"
+        template-url="./components/MiddleWares/dirPagination.tpl.html"></dir-pagination-controls>
+    </div>
+    
+    <div ng-hide="{{(dashboard.savings.length == 0)? false:true }}">
+        <div class="md-whiteframe-z2 md-hue-1">
+            <span>You Dont Have have any savings, Create a savings plan or Pay your pending Saves </span>
+        </div>
+    </div>
+</div>
+
+<div class="content" permission="['supAdmin']">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-warning text-center">
+                                    <i class="ti-server"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>Capacity</p>
+                                    {{dashboard.savesWeight}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <hr />
+                            <div class="stats">
+                                <i class="ti-reload"></i> Updated now
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-sm-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-success text-center">
+                                    <i class="ti-wallet"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>Amounts Paid up</p>
+                                    N{{dashboard.savesUpTillDate | number}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <hr />
+                            <div class="stats">
+                                <i class="ti-calendar"></i> Last day
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6" flex>
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-danger text-center">
+                                    <i class="ti-pulse"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>Number of users</p>
+                                    {{dashboard.usersCount}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <hr />
+                            <div class="stats">
+                                <i class="ti-timer"></i> In the last hour
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Users Behavior</h4>
+                        <p class="category">24 Hours performance</p>
+                    </div>
+                    <div class="content">
+                        <div id="chartHours" class="ct-chart"></div>
+                        <div class="footer">
+                            <div class="chart-legend">
+                                <i class="fa fa-circle text-info"></i> Open
+                                <i class="fa fa-circle text-danger"></i> Click
+                                <i class="fa fa-circle text-warning"></i> Click Second Time
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="ti-reload"></i> Updated 3 minutes ago
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

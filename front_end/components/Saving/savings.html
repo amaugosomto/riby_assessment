@@ -1,0 +1,64 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-1 row wrapper">
+    <h3 class="row text-center header animate-in">
+        <b>Create a Saving Plan</b>
+        </h1>
+        <hr />
+
+        <div class="main-login main-center">
+            <form class="form-horizontal" name="saveForm">
+
+                <h2 style="text-align:center; font-weight:bold">{{save.option | uppercase}}</h2>
+                <!-- <label>Choose a Plan : </label>
+            <select name="option" class="btn btn-primary dropdown-toggle" ng-model="save.save.option" required>
+                <option value="" disabled selected>Choose your Plan</option>
+                <option ng-repeat="option in save.options" ng-value="option.id">{{option.name}}</option>
+            </select> -->
+                <br>
+
+                <div class="form-group" show-errors>
+                    <label for="name" class="cols-sm-2 control-label">Description</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+                            </span>
+                            <input type="text" name="description" class="form-control" ng-model="save.save.name" id="name"
+                                placeholder="Describe your Plan" required />
+                        </div>
+                        <p class="help-block" ng-if="saveForm.description.$error.required">Please Describe Your Plan</p>
+                    </div>
+                </div>
+
+                <div class="form-group" show-errors>
+                    <label for="amount" class="cols-sm-2 control-label">Amount</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-usd" aria-hidden="true"></i>
+                            </span>
+                            <input type="number" name="amount" class="form-control" ng-model="save.save.amount" id="amount"
+                                placeholder="Enter the Amount" min="{{save.minAmount}}" max="{{(save.maxAmount)? save.maxAmount: ''}}"
+                                required />
+                        </div>
+                        <p class="help-block" ng-if="saveForm.amount.$error.required">Please Put in an amount</p>
+                        <p class="help-block" ng-if="saveForm.amount.$error.number">Values should be only Numbers</p>
+                        <p class="help-block" ng-if="saveForm.amount.$error.min">Amount should be Greater than or equal
+                            to {{save.minAmount | number }}</p>
+                        <p class="help-block" ng-if="saveForm.amount.$error.max">Amount should be Less than or equal
+                            to {{save.maxAmount | number }}</p>
+                    </div>
+                </div>
+
+                <md-input-container show-errors>
+                    <label>Choose Time</label>
+                    <md-datepicker ng-model="save.duration" name="dateField" md-current-view="year" md-min-date="save.minDate"
+                        md-max-date="save.maxDate"></md-datepicker>
+                </md-input-container>
+
+                <div class="form-group" ng-click="save.startSave('rave-123456')">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button" ng-hide="save.activated">Create Savings</button>
+                    <md-progress-circular md-mode="indeterminate" ng-hide="!save.activated" layout-align='center'></md-progress-circular>
+                </div>
+            </form>
+        </div>
+</div>

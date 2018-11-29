@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Register</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+        <script src="main.js"></script> -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                var email,pass,num,name;
+
+                $("#submit").click(function() {
+                    email = $("#email").val();
+                    pass = $("#password").val();
+                    num = $("#phoneNumber").val();
+                    name = $("#name").val();
+
+                    $.post("http://localhost:3000/users/register", {email:email, pass:pass, name:name, num:num},
+                     function(data) {
+                        if (data === "done"){
+                            window.location.href = "/users/html/login";
+                        }   
+                    });
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+        <h3>Savers App</h3>
+        <input type="text" size="40" placeholder="Type your Name here" id="name"> <br />
+        <input type="text" size="40" placeholder="Type your Email here" id="email"> <br />
+        <input type="text" size="40" placeholder="Type your Phone Number here" id="phoneNumber"> <br />
+        <input type="password" size="40" placeholder="Type your password here" id="password"> <br />
+
+        <input type="button" value="Submit" id="submit">
+    </body>
+</html>

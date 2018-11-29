@@ -1,0 +1,34 @@
+<div class="wrapper">
+    <h2 class="sub-header">Saving Report</h2>
+    <br>
+    <hr>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="grey lighten-2">
+                <tr style="color: #428bca; font-weight: bolder;">
+                    <b>
+                        <th scope="col">Plan Name</th>
+                        <th scope="col">Saving Name</th>
+                        <th scope="col">Date Paid</th>
+                        <th scope="col">Amount</th>
+                    </b>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="save in vm.saves" >
+                    <td>{{save.plan | uppercase}}</td>
+                    <td>{{save.option | uppercase}}</td>
+                    <td>{{save.created_at | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{save.amount | number }}</td>
+                </tr>
+                <tr class="alert alert-success">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{vm.total}}</td>
+                </tr>
+                </span>
+            </tbody>
+        </table>
+    </div>
+</div>

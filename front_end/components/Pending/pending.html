@@ -1,0 +1,39 @@
+<div class="wrapper" >
+    <h2 class="sub-header">Pending Savings</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="grey lighten-2">
+                <tr style="color: #428bca; font-weight: bolder;">
+                    <b>
+                        <th scope="col">Plan</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Interest</th>
+                        <th scope="col">Amount Expected</th>
+                        <th scope="col">Credited On</th>
+                        <th scope="col">Action/Status</th>
+                        <th>
+                        </th>
+                    </b>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="saving in vm.pending">
+                    <td>{{saving.plan | uppercase}}</td>
+                    <td>{{saving.option | uppercase}}</td>
+                    <td>{{saving.amount | number }}</td>
+                    <td>{{saving.duration}} Months</td>
+                    <td>{{saving.interest}}%</td>
+                    <td>{{saving.projectedAmount | number}}</td>
+                    <td>{{saving.saveDate | date: 'dd/MM/yyyy'}}</td>
+                    <td>
+                        <a ng-click="vm.payment(saving._id, saving.amount, saving.plan)" ng-show="!saving.paidComplete" class="btn btn-default"><b>Make
+                                Payment</b></a>
+                    </td>
+                </tr>
+                </span>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="page">
+    <div id="login" class="container">
+        <div class="row main">
+            <div class="panel-heading">
+                <div class="panel-title text-center">
+                    <h1 class="title md-hue-1">Users Login</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-login main-center">
+            <form class="form-horizontal" ng-submit="login.loginUser()" name="logInForm">
+                <div class="column">
+                    <div class="col-md-12">
+                        <div class="form-group" show-errors>
+                            <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="email" name="email" class="form-control" ng-model="login.user.email"
+                                        id="email" placeholder="Enter your Email" required />
+                                </div>
+                                <p class="help-block" ng-if="logInForm.email.$error.required">Please Put in your Email</p>
+                                <p class="help-block" ng-if="logInForm.email.$error.email">The email address is invalid</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group" show-errors>
+                            <label for="password" class="cols-sm-2 control-label">Password</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-lock" aria-hidden="true" href="#"></i>
+                                    </span>
+                                    <input type="password" name="password" class="form-control" ng-model="login.user.password"
+                                        id="password" placeholder="Enter your Password" required />
+                                </div>
+                                <p class="help-block" ng-if="logInForm.password.$error.required">Please Put in your
+                                    password</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <a sref="reset">
+                            <span ng-click="login.reset()" style="color:blue">Forgot Password ?</span>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="form-group text-center">
+                    <button type="submit" ng-disabled="logInForm.$invalid" ng-hide="login.activated" class="btn btn-primary btn-fill btn-wd">Login</button>
+                    <md-progress-circular md-mode="indeterminate" ng-hide="!login.activated" layout-align='center'></md-progress-circular>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

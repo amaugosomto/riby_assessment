@@ -1,0 +1,13 @@
+<h2 class="header md-accent">Edit privileges</h2>
+<form>
+    <md-input-container class="form-group" show-errors>
+        <label>User State</label>
+
+        <md-select ng-model="vm.state">
+            <md-option><em>None</em></md-option>
+            <md-option ng-repeat="opt in vm.options" ng-value="opt.option">{{opt.option}}</md-option>
+        </md-select>
+    </md-input-container>
+
+    <md-button ng-click='vm.change()'>Change</md-button>
+</form>
